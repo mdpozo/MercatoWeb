@@ -6,24 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis Pedidos | Mercato</title>
   
-  <!-- 
-    GUARDIÁN DE AUTENTICACIÓN (Auth Route Guard):
-    ¿CÓMO FUNCIONA?
-    Este script se coloca intencionadamente al principio del `<head>` antes de cargar cualquier estilo
-    o código visual. Comprueba inmediatamente si existe un registro de sesión (`mercato_user`) en 
-    el almacenamiento local (`localStorage`) del navegador.
-    
-    ¿POR QUÉ SE HIZO ASÍ?
-    1. Evitar Parpadeos (No FOUC / No Flashes): Al ejecutarse al principio de la carga, si el usuario
-       no tiene la sesión iniciada, es bloqueado y expulsado AL INSTANTE, antes de que el navegador 
-       pueda pintar en pantalla el catálogo de pedidos privados. Esto es crucial por seguridad y experiencia visual.
-    2. 'location.replace()' vs 'location.href': Usamos `window.location.replace` para redirigir 
-       en lugar de `href`. Esto SUSTITUYE la entrada actual en el historial de navegación. Así, si el usuario
-       intenta pulsar el botón "Atrás" de su navegador, no quedará atrapado en un bucle infinito de redirecciones.
-  -->
+  <!-- Validar que este logueado -->
   <script>
     if (!localStorage.getItem('mercato_user')) {
-      window.location.replace('login.html'); // Expulsión inmediata
+      window.location.replace('login.html');
     }
   </script>
   
@@ -181,7 +167,7 @@
         </div>
       </div>
 
-      <!-- Contenedor dinámico de Pedidos (Gestionado reactivamente por main.js) -->
+      <!-- Lista de pedidos -->
       <div id="orders-list"></div>
 
     </div>
@@ -227,7 +213,14 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/datos.js"></script>
+  <script src="js/interfaz.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/autenticacion.js"></script>
+  <script src="js/pedidos.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/componentes.js"></script>
+  <script src="js/principal.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,4 @@
-<!-- 
-  =========================================================================
-  MERCATO - Página Principal (Home)
-  -------------------------------------------------------------------------
-  Esta es la página de aterrizaje (landing page) optimizada para conversión.
-  Diseño inspirado en gigantes como Amazon, con estructura semántica HTML5,
-  estilos modernos en styles.css y lógica reactiva en main.js.
-  =========================================================================
--->
+<!-- Pagina de inicio -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,33 +6,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO: Título descriptivo con palabra clave y marca para SEO local y branding -->
+  <!-- Titulo -->
   <title>Mercato | Tu Marketplace Online de Confianza</title>
   
-  <!-- SEO: Meta descripción persuasiva con incentivo de envío gratuito para aumentar CTR en Google -->
+  <!-- Descripcion -->
   <meta name="description" content="Encuentra las mejores ofertas en Tecnología, Moda, Hogar y mucho más. Envíos gratis y pagos 100% seguros en Mercato.">
   
-  <!-- Tipografía premium Inter de Google Fonts (pesos normal, seminegrita, negrita y extranegrita) -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
   
-  <!-- Hoja de estilos unificada que gestiona layouts de rejilla, variables globales y componentes de la marca -->
+  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-  <!-- CABECERA (Header) principal: Contiene la barra de búsqueda, accesos de usuario y cesta -->
+  <!-- Header -->
   <header class="site-header">
     <div class="header-main">
       
-      <!-- Menú hamburguesa (móviles): Se activa por JavaScript añadiendo clases de visibilidad -->
+      <!-- Menu hamburguesa movil -->
       <button class="nav-hamburger" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
       
-      <!-- Logotipo con acento de color de la marca (naranja #ff9900) -->
+      <!-- Logo -->
       <a href="index.html" class="logo">Merca<span>to</span></a>
 
-      <!-- Buscador unificado con selector de categoría para emular la experiencia de Amazon -->
+      <!-- Buscador -->
       <div class="search-box">
         <select aria-label="Categoría">
           <option>Todos los departamentos</option>
@@ -56,22 +48,22 @@
         </button>
       </div>
 
-      <!-- Barra de acciones prioritarias de conversión (Cuenta, Pedidos y Carrito) -->
+      <!-- Acciones de cuenta y carrito -->
       <div class="header-actions">
         
-        <!-- Enlace a Mi Cuenta: Si hay sesión activa en localStorage, el JS inyecta el menú hover aquí -->
+        <!-- Cuenta -->
         <a href="login.html" class="action-link">
           <small>Hola, Inicia sesión</small>
           <strong>Mi Cuenta</strong>
         </a>
         
-        <!-- Enlace privado a Pedidos: Protegido por el guardián de autenticación del frontend -->
+        <!-- Pedidos -->
         <a href="pedidos.html" class="action-link">
           <small>Devoluciones</small>
           <strong>y Pedidos</strong>
         </a>
         
-        <!-- Botón del Carrito: Con un indicador dinámico (.cart-badge) controlado por main.js -->
+        <!-- Carrito -->
         <a href="carrito.html" class="cart-btn">
           <div style="position:relative;">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
@@ -86,7 +78,7 @@
       </div>
     </div>
     
-    <!-- Navegación secundaria (Enlaces directos a secciones clave de interés comercial) -->
+    <!-- Enlaces de navegacion -->
     <nav class="header-nav">
       <div class="nav-links">
         <a href="index.html" style="font-weight: 700;">Inicio</a>
@@ -100,22 +92,10 @@
   </header>
 
   <main>
-    <!-- 
-      SECCIÓN DE BANNER PRINCIPAL (Slider / Carrusel Infinito):
-      ¿CÓMO FUNCIONA?
-      Este carrusel tiene un diseño premium de tipo "bento-grid" inspirado en Amazon.
-      - `.slider-track-mask`: Oculta el desbordamiento horizontal (`overflow: hidden`).
-      - `.slider-track`: La tira horizontal gigante que se desplaza usando transformaciones CSS (`transform: translateX`).
-      - Las `.slider-card` tienen diseños temáticos personalizados (desde banners corporativos hasta cuadrículas de productos).
-      
-      ¿POR QUÉ SE HIZO ASÍ?
-      - El desplazamiento es gestionado por JavaScript de forma interactiva y con físicas fluidas.
-      - En lugar de banners planos y aburridos, se usan tarjetas interactivas HTML con cuadrículas internas
-        y badges de descuento (`grid-badge`), lo que incrementa el CTR de las ofertas destacadas.
-    -->
+    <!-- Carrusel de imagenes -->
     <section class="slider-section">
       <div class="slider-container">
-        <!-- Flecha de navegación izquierda -->
+        <!-- Flechas -->
         <button class="slider-btn prev-btn" aria-label="Anterior">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2">
             <path d="m15 18-6-6 6-6" />
@@ -125,7 +105,7 @@
         <div class="slider-track-mask">
           <div class="slider-track" id="sliderTrack">
 
-            <!-- Tarjeta 1: Estilo Dispositivo Inteligente (Alexa) -->
+            <!-- Tarjeta 1 (Tech) -->
             <div class="slider-card card-alexa">
               <div class="card-alexa-content">
                 <p class="small-title">Disfruta más por menos</p>
@@ -137,7 +117,7 @@
               </div>
             </div>
 
-            <!-- Tarjeta 2: Banner de Belleza y Cremas -->
+            <!-- Tarjeta 2 (Belleza) -->
             <div class="slider-card card-fullimg">
               <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=500&q=80" alt="Cremas y belleza">
               <div class="card-fullimg-controls">
@@ -146,7 +126,7 @@
               </div>
             </div>
 
-            <!-- Tarjeta 3: Rejilla de Ofertas Rápidas (2x2 Grid) -->
+            <!-- Tarjeta 3 (Ofertas 2x2 Grid) -->
             <div class="slider-card card-red-grid">
               <h2>Tus listas<br>en oferta</h2>
               <div class="amazon-2x2-grid">
@@ -169,7 +149,7 @@
               </div>
             </div>
 
-            <!-- Tarjeta 4: Estilo "Peach" de Ropa Infantil -->
+            <!-- Tarjeta 4 (Ropa peques) -->
             <div class="slider-card card-peach">
               <h2>Nuevos outfits<br>para los peques</h2>
               <p><strong>mercato essentials</strong></p>
@@ -189,7 +169,7 @@
       </div>
     </section>
 
-    <!-- 1. Categorías Rápidas -->
+    <!-- Categorias -->
     <section class="container mt-4">
       <div class="quick-categories">
         <a href="productos.html" class="quick-cat">
@@ -231,13 +211,7 @@
       </div>
     </section>
 
-    <!-- 
-      2. BENEFICIOS / BARRA DE CONFIANZA:
-      ¿POR QUÉ SE HIZO ASÍ?
-      Colocar sellos de confianza (envío gratuito, pago seguro, devoluciones fáciles) 
-      en la mitad superior de la página principal reduce el miedo a la compra (fricción) 
-      e incrementa de manera medible el porcentaje de conversión de visitantes a compradores.
-    -->
+    <!-- Barra de ventajas -->
     <section class="container mt-4">
       <div class="benefits-bar">
         <div class="benefit-item">
@@ -255,22 +229,15 @@
       </div>
     </section>
 
-    <!-- 
-      3. SECCIÓN DE OFERTAS FLASH:
-      ¿CÓMO FUNCIONA?
-      - Muestra un reloj regresivo dinámico coordinado en tiempo real mediante `FlashTimer.js`.
-      - Los productos estáticos sirven de demostración comercial con badges destacados del porcentaje de descuento.
-      - Cada botón "Añadir a cesta" llama a la lógica del carrito `Cart.add(id)` en `main.js`.
-    -->
+    <!-- Ofertas flash -->
     <section class="container mt-4">
       <div class="flash-header">
         <h2 class="section-title">Ofertas Flash ⚡</h2>
-        <!-- El ID flash-countdown es inyectado por FlashTimer de JS para actualizar el reloj cada segundo -->
         <span class="flash-timer">Termina en: <strong id="flash-countdown">04:22:15</strong></span>
       </div>
       <div class="flash-sales-row animate">
         
-        <!-- Producto 1: Smartwatch -->
+        <!-- Producto 1 -->
         <article class="product-card">
           <div class="product-card__media">
             <span class="product-card__badge badge--discount">-45%</span>
@@ -286,7 +253,7 @@
           </div>
         </article>
 
-        <!-- Producto 2: Altavoz Bluetooth -->
+        <!-- Producto 2 -->
         <article class="product-card">
           <div class="product-card__media">
             <span class="product-card__badge badge--discount">-30%</span>
@@ -302,7 +269,7 @@
           </div>
         </article>
 
-        <!-- Producto 3: Laptop ProBook -->
+        <!-- Producto 3 -->
         <article class="product-card">
           <div class="product-card__media">
             <span class="product-card__badge badge--discount">-60%</span>
@@ -318,7 +285,7 @@
           </div>
         </article>
 
-        <!-- Producto 4: Cámara Reflex -->
+        <!-- Producto 4 -->
         <article class="product-card">
           <div class="product-card__media">
             <span class="product-card__badge badge--discount">-20%</span>
@@ -336,13 +303,7 @@
       </div>
     </section>
 
-    <!-- 
-      4. BANNERS PROMOCIONALES / CAMPAÑAS DE MARKETING:
-      ¿POR QUÉ SE HIZO ASÍ?
-      Un grid responsivo de dos columnas con banners visuales de campañas específicas 
-      (ej: Rebajas de Verano y Tecnología) que actúan como "imán visual" para segmentar 
-      la navegación y dirigir el tráfico a categorías clave.
-    -->
+    <!-- Banners de ofertas -->
     <section class="container mt-4">
       <div class="promo-banners">
         <a href="productos.html" class="promo-banner animate">
@@ -364,29 +325,21 @@
       </div>
     </section>
 
-    <!-- 
-      5. SECCIÓN DE RECOMENDACIONES DINÁMICAS (Inspirado en tus búsquedas):
-      ¿CÓMO FUNCIONA?
-      - El contenedor `#products-container` empieza completamente vacío.
-      - Al cargar la página, el script principal (`API.getFeaturedProducts()`) en `main.js` 
-        realiza una carga dinámica simulada, genera los elementos HTML de las tarjetas 
-        e inyecta el catálogo completo de productos con sus especificaciones de forma dinámica.
-    -->
+    <!-- Grid de productos recomendados -->
     <section class="container mt-4" style="margin-bottom: 4rem;">
       <h2 class="section-title" style="margin-bottom:1.2rem;">Inspirado en tus búsquedas</h2>
       <div class="products-grid" id="products-container">
-        <!-- Inyección dinámica de productos por JS -->
+        <!-- Grid dinámico -->
       </div>
     </section>
 
   </main>
 
-  <!-- PIE DE PÁGINA (Footer): Estructurado en rejilla semántica para SEO y enlaces legales -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         
-        <!-- Columna de Branding y Pasarela de pagos aceptados (Trust Signals de pie de página) -->
         <div>
           <h3 style="font-size:1.5rem; color:#fff; margin-bottom:1rem;">Merca<span style="color:var(--brand)">to</span></h3>
           <p style="color:#aaa; font-size:0.9rem;">Envíos globales y pagos 100% seguros.</p>
@@ -397,21 +350,21 @@
           </div>
         </div>
         
-        <!-- Enlaces corporativos -->
+        <!-- Conócenos -->
         <div class="footer-col">
           <h4>Conócenos</h4>
           <a href="nosotros.html">Sobre nosotros</a>
           <a href="#">Trabaja en Mercato</a>
         </div>
         
-        <!-- Enlaces comerciales -->
+        <!-- Métodos de pago -->
         <div class="footer-col">
           <h4>Métodos de pago</h4>
           <a href="#">Tarjetas de crédito</a>
           <a href="#">Financiación</a>
         </div>
         
-        <!-- Enlaces de Soporte y Devoluciones privadas -->
+        <!-- Ayuda -->
         <div class="footer-col">
           <h4>¿Necesitas ayuda?</h4>
           <a href="contacto.html">Atención al cliente</a>
@@ -419,15 +372,21 @@
         </div>
       </div>
       
-      <!-- Derechos legales y Copyright -->
       <div class="footer-bottom">
         <p>&copy; 2026 Mercato S.L. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Carga del JavaScript principal unificado al final para no bloquear la carga del DOM y optimizar velocidad (SEO Speed) -->
-  <script src="js/main.js"></script>
+  <!-- Scripts de JS -->
+  <script src="js/datos.js"></script>
+  <script src="js/interfaz.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/autenticacion.js"></script>
+  <script src="js/pedidos.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/componentes.js"></script>
+  <script src="js/principal.js"></script>
 </body>
 
 </html>

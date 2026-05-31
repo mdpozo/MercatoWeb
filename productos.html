@@ -48,11 +48,8 @@
 
   <main class="container layout-sidebar">
     <aside class="sidebar">
-      <!-- 
-        GRUPO DE FILTRADO POR CATEGORÍA:
-        Cada checkbox tiene la clase `.cat-filter` y su valor (`value`) coincide 
-        exactamente con el campo `.category` de los productos en `MOCK_DATA`.
-      -->
+      
+      <!-- Categorias -->
       <div class="filter-group">
         <h3>Categorías</h3>
         <label><input type="checkbox" class="cat-filter" value="Tecnología"> Tecnología</label>
@@ -62,11 +59,7 @@
         <label><input type="checkbox" class="cat-filter" value="Accesorios"> Accesorios</label>
       </div>
       
-      <!-- 
-        GRUPO DE FILTRADO POR RANGO DE PRECIOS:
-        Los radio-buttons comparten el mismo `name="price"` para que solo se pueda seleccionar uno a la vez.
-        Cada uno tiene un valor representativo (`value`) que activa condicionales en el motor de filtros de JS.
-      -->
+      <!-- Rangos de precio -->
       <div class="filter-group">
         <h3>Precio</h3>
         <label><input type="radio" name="price" class="price-filter" value="all" checked> Todos los precios</label>
@@ -116,7 +109,15 @@
       </div>
     </div>
   </footer>
-  <script src="js/main.js"></script>
+  
+  <script src="js/datos.js"></script>
+  <script src="js/interfaz.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/autenticacion.js"></script>
+  <script src="js/pedidos.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/componentes.js"></script>
+  <script src="js/principal.js"></script>
 </body>
 
 </html>

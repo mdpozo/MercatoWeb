@@ -1,0 +1,250 @@
+.slider-section {
+  padding: 1.5rem 0;
+  position: relative;
+}
+
+.slider-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.slider-track-mask {
+  flex: 1;
+  overflow: hidden;
+  padding-left: 6px;
+}
+
+.slider-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding: 4px 0;
+}
+
+.slider-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 100px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid #ddd;
+  cursor: pointer;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.slider-btn:hover {
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.prev-btn {
+  margin-right: 15px;
+}
+
+.next-btn {
+  margin-left: 15px;
+}
+
+/* Tarjetas */
+.slider-card {
+  width: 330px;
+  height: 420px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.slider-card h2 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+/* Alexa */
+.card-alexa {
+  background: linear-gradient(to bottom, #fff 40%, #ff6600 40%);
+}
+
+.card-alexa-content {
+  padding: 1.5rem;
+  z-index: 2;
+  position: relative;
+}
+
+.card-alexa-content .small-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.card-alexa-bg {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.card-alexa-bg img {
+  width: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transform: scale(1.1);
+  margin-bottom: -10px;
+}
+
+/* Belleza */
+.card-fullimg {
+  padding: 0;
+}
+
+.card-fullimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-fullimg-controls {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.card-fullimg-controls span {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Ofertas 2x2 */
+.card-red-grid {
+  background: #ba0c2f;
+  padding: 1.5rem;
+  color: #fff;
+}
+
+.card-red-grid h2 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.amazon-2x2-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex: 1;
+}
+
+.amazon-2x2-grid .grid-box {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.amazon-2x2-grid .grid-box img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
+
+.grid-badge {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background: #cc0c39;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+/* Outfits */
+.card-peach {
+  background: #fbd3b6;
+  padding: 1.5rem;
+}
+
+.card-peach h2 {
+  margin-bottom: 0.5rem;
+}
+
+.card-peach p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.card-peach-img {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.card-peach-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-card__img-container {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 6px;
+  margin: 0.8rem 0;
+}
+
+.slider-card__img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.slider-card a {
+  color: var(--link);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.slider-card a:hover {
+  text-decoration: underline;
+}
+
+.slider-card:not([class*="card-"]) {
+  background: #fff;
+  padding: 1.2rem;
+}

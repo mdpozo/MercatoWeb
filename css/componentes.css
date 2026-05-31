@@ -1,0 +1,60 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 100px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #111;
+}
+
+.btn-primary:hover {
+  background: var(--brand-hover);
+}
+
+.btn-cart {
+  position: relative;
+  background: #ffd814;
+  color: #111;
+  border: none;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(253, 210, 0, 0.15);
+}
+
+.btn-cart::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, #ffd814, #ff9900, #ffdb58, #ffd814);
+  background-size: 50% 100%;
+  z-index: -1;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 153, 0, 0.35);
+  color: #000;
+}
+
+.btn-cart:hover::before {
+  transform: translateX(-50%);
+}
+
+.btn-block {
+  width: 100%;
+}
