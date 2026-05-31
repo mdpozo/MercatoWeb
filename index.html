@@ -1,0 +1,433 @@
+<!-- 
+  =========================================================================
+  MERCATO - Página Principal (Home)
+  -------------------------------------------------------------------------
+  Esta es la página de aterrizaje (landing page) optimizada para conversión.
+  Diseño inspirado en gigantes como Amazon, con estructura semántica HTML5,
+  estilos modernos en styles.css y lógica reactiva en main.js.
+  =========================================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO: Título descriptivo con palabra clave y marca para SEO local y branding -->
+  <title>Mercato | Tu Marketplace Online de Confianza</title>
+  
+  <!-- SEO: Meta descripción persuasiva con incentivo de envío gratuito para aumentar CTR en Google -->
+  <meta name="description" content="Encuentra las mejores ofertas en Tecnología, Moda, Hogar y mucho más. Envíos gratis y pagos 100% seguros en Mercato.">
+  
+  <!-- Tipografía premium Inter de Google Fonts (pesos normal, seminegrita, negrita y extranegrita) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Hoja de estilos unificada que gestiona layouts de rejilla, variables globales y componentes de la marca -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- CABECERA (Header) principal: Contiene la barra de búsqueda, accesos de usuario y cesta -->
+  <header class="site-header">
+    <div class="header-main">
+      
+      <!-- Menú hamburguesa (móviles): Se activa por JavaScript añadiendo clases de visibilidad -->
+      <button class="nav-hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      
+      <!-- Logotipo con acento de color de la marca (naranja #ff9900) -->
+      <a href="index.html" class="logo">Merca<span>to</span></a>
+
+      <!-- Buscador unificado con selector de categoría para emular la experiencia de Amazon -->
+      <div class="search-box">
+        <select aria-label="Categoría">
+          <option>Todos los departamentos</option>
+          <option>Tecnología</option>
+          <option>Moda</option>
+        </select>
+        <input type="text" placeholder="Buscar productos, marcas y más...">
+        <button aria-label="Buscar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Barra de acciones prioritarias de conversión (Cuenta, Pedidos y Carrito) -->
+      <div class="header-actions">
+        
+        <!-- Enlace a Mi Cuenta: Si hay sesión activa en localStorage, el JS inyecta el menú hover aquí -->
+        <a href="login.html" class="action-link">
+          <small>Hola, Inicia sesión</small>
+          <strong>Mi Cuenta</strong>
+        </a>
+        
+        <!-- Enlace privado a Pedidos: Protegido por el guardián de autenticación del frontend -->
+        <a href="pedidos.html" class="action-link">
+          <small>Devoluciones</small>
+          <strong>y Pedidos</strong>
+        </a>
+        
+        <!-- Botón del Carrito: Con un indicador dinámico (.cart-badge) controlado por main.js -->
+        <a href="carrito.html" class="cart-btn">
+          <div style="position:relative;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-badge" style="display:none;">0</span>
+          </div>
+          <strong>Cesta</strong>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Navegación secundaria (Enlaces directos a secciones clave de interés comercial) -->
+    <nav class="header-nav">
+      <div class="nav-links">
+        <a href="index.html" style="font-weight: 700;">Inicio</a>
+        <a href="productos.html">Todos los Productos</a>
+        <a href="productos.html">Ofertas del Día</a>
+        <a href="contacto.html">Atención al Cliente</a>
+        <a href="nosotros.html">Sobre Mercato</a>
+      </div>
+    </nav>
+    <div class="nav-overlay"></div>
+  </header>
+
+  <main>
+    <!-- 
+      SECCIÓN DE BANNER PRINCIPAL (Slider / Carrusel Infinito):
+      ¿CÓMO FUNCIONA?
+      Este carrusel tiene un diseño premium de tipo "bento-grid" inspirado en Amazon.
+      - `.slider-track-mask`: Oculta el desbordamiento horizontal (`overflow: hidden`).
+      - `.slider-track`: La tira horizontal gigante que se desplaza usando transformaciones CSS (`transform: translateX`).
+      - Las `.slider-card` tienen diseños temáticos personalizados (desde banners corporativos hasta cuadrículas de productos).
+      
+      ¿POR QUÉ SE HIZO ASÍ?
+      - El desplazamiento es gestionado por JavaScript de forma interactiva y con físicas fluidas.
+      - En lugar de banners planos y aburridos, se usan tarjetas interactivas HTML con cuadrículas internas
+        y badges de descuento (`grid-badge`), lo que incrementa el CTR de las ofertas destacadas.
+    -->
+    <section class="slider-section">
+      <div class="slider-container">
+        <!-- Flecha de navegación izquierda -->
+        <button class="slider-btn prev-btn" aria-label="Anterior">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </button>
+
+        <div class="slider-track-mask">
+          <div class="slider-track" id="sliderTrack">
+
+            <!-- Tarjeta 1: Estilo Dispositivo Inteligente (Alexa) -->
+            <div class="slider-card card-alexa">
+              <div class="card-alexa-content">
+                <p class="small-title">Disfruta más por menos</p>
+                <h2>Ahorra hasta<br>un 40%</h2>
+                <h3 style="font-size:1.2rem; margin-top:10px;">mercato <strong>tech</strong></h3>
+              </div>
+              <div class="card-alexa-bg">
+                <img src="https://images.unsplash.com/photo-1543512214-318c7553f230?w=500&q=80" alt="Altavoz inteligente">
+              </div>
+            </div>
+
+            <!-- Tarjeta 2: Banner de Belleza y Cremas -->
+            <div class="slider-card card-fullimg">
+              <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=500&q=80" alt="Cremas y belleza">
+              <div class="card-fullimg-controls">
+                <span>||</span>
+                <span>🔇</span>
+              </div>
+            </div>
+
+            <!-- Tarjeta 3: Rejilla de Ofertas Rápidas (2x2 Grid) -->
+            <div class="slider-card card-red-grid">
+              <h2>Tus listas<br>en oferta</h2>
+              <div class="amazon-2x2-grid">
+                <div class="grid-box">
+                  <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=200&q=80" alt="Taza">
+                  <span class="grid-badge">-20%</span>
+                </div>
+                <div class="grid-box">
+                  <img src="https://images.unsplash.com/photo-1555252834-3165b6f3630f?w=200&q=80" alt="Portabebés">
+                  <span class="grid-badge">-18%</span>
+                </div>
+                <div class="grid-box">
+                  <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=200&q=80" alt="Toallas">
+                  <span class="grid-badge">-13%</span>
+                </div>
+                <div class="grid-box">
+                  <img src="https://images.unsplash.com/photo-1594498653385-d5172c532c00?w=200&q=80" alt="Termo">
+                  <span class="grid-badge">-51%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 4: Estilo "Peach" de Ropa Infantil -->
+            <div class="slider-card card-peach">
+              <h2>Nuevos outfits<br>para los peques</h2>
+              <p><strong>mercato essentials</strong></p>
+              <div class="card-peach-img">
+                <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&q=80" alt="Ropa de niño">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="slider-btn next-btn" aria-label="Siguiente">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- 1. Categorías Rápidas -->
+    <section class="container mt-4">
+      <div class="quick-categories">
+        <a href="productos.html" class="quick-cat">
+          <div class="quick-cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+          </div>
+          <span>Tecnología</span>
+        </a>
+        <a href="productos.html" class="quick-cat">
+          <div class="quick-cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><path d="M20.38 3.46L16 2a8 8 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h1.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/></svg>
+          </div>
+          <span>Moda</span>
+        </a>
+        <a href="productos.html" class="quick-cat">
+          <div class="quick-cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <span>Hogar</span>
+        </a>
+        <a href="productos.html" class="quick-cat">
+          <div class="quick-cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </div>
+          <span>Deportes</span>
+        </a>
+        <a href="productos.html" class="quick-cat">
+          <div class="quick-cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+          </div>
+          <span>Juguetes</span>
+        </a>
+        <a href="productos.html" class="quick-cat">
+          <div class="quick-cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <span>Libros</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 
+      2. BENEFICIOS / BARRA DE CONFIANZA:
+      ¿POR QUÉ SE HIZO ASÍ?
+      Colocar sellos de confianza (envío gratuito, pago seguro, devoluciones fáciles) 
+      en la mitad superior de la página principal reduce el miedo a la compra (fricción) 
+      e incrementa de manera medible el porcentaje de conversión de visitantes a compradores.
+    -->
+    <section class="container mt-4">
+      <div class="benefits-bar">
+        <div class="benefit-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+          <span><strong>Envío gratis</strong> desde 29€</span>
+        </div>
+        <div class="benefit-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span><strong>Pago 100%</strong> Seguro</span>
+        </div>
+        <div class="benefit-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          <span><strong>Devoluciones</strong> en 30 días</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+      3. SECCIÓN DE OFERTAS FLASH:
+      ¿CÓMO FUNCIONA?
+      - Muestra un reloj regresivo dinámico coordinado en tiempo real mediante `FlashTimer.js`.
+      - Los productos estáticos sirven de demostración comercial con badges destacados del porcentaje de descuento.
+      - Cada botón "Añadir a cesta" llama a la lógica del carrito `Cart.add(id)` en `main.js`.
+    -->
+    <section class="container mt-4">
+      <div class="flash-header">
+        <h2 class="section-title">Ofertas Flash ⚡</h2>
+        <!-- El ID flash-countdown es inyectado por FlashTimer de JS para actualizar el reloj cada segundo -->
+        <span class="flash-timer">Termina en: <strong id="flash-countdown">04:22:15</strong></span>
+      </div>
+      <div class="flash-sales-row animate">
+        
+        <!-- Producto 1: Smartwatch -->
+        <article class="product-card">
+          <div class="product-card__media">
+            <span class="product-card__badge badge--discount">-45%</span>
+            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80" alt="Smartwatch" class="product-card__img">
+          </div>
+          <div class="product-card__content" style="padding: 1rem; display: flex; flex-direction: column;">
+            <h3 class="product-card__title" style="font-size:1rem; margin-bottom:0.5rem;"><a href="detalle.html">Smartwatch FitPro</a></h3>
+            <div class="product-card__price-row" style="margin-bottom:10px;">
+              <span class="price-current" style="font-size:1.4rem;">39,99€</span>
+              <span class="price-old" style="font-size:0.9rem;">72,99€</span>
+            </div>
+            <button class="btn btn-cart" style="width:100%; padding:8px; font-size:0.85rem;" onclick="Cart.add(2)">Añadir a cesta</button>
+          </div>
+        </article>
+
+        <!-- Producto 2: Altavoz Bluetooth -->
+        <article class="product-card">
+          <div class="product-card__media">
+            <span class="product-card__badge badge--discount">-30%</span>
+            <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80" alt="Altavoz Bluetooth" class="product-card__img">
+          </div>
+          <div class="product-card__content" style="padding: 1rem; display: flex; flex-direction: column;">
+            <h3 class="product-card__title" style="font-size:1rem; margin-bottom:0.5rem;"><a href="detalle.html">Altavoz SoundMax</a></h3>
+            <div class="product-card__price-row" style="margin-bottom:10px;">
+              <span class="price-current" style="font-size:1.4rem;">25,50€</span>
+              <span class="price-old" style="font-size:0.9rem;">36,50€</span>
+            </div>
+            <button class="btn btn-cart" style="width:100%; padding:8px; font-size:0.85rem;" onclick="Cart.add(1)">Añadir a cesta</button>
+          </div>
+        </article>
+
+        <!-- Producto 3: Laptop ProBook -->
+        <article class="product-card">
+          <div class="product-card__media">
+            <span class="product-card__badge badge--discount">-60%</span>
+            <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500&q=80" alt="Laptop" class="product-card__img">
+          </div>
+          <div class="product-card__content" style="padding: 1rem; display: flex; flex-direction: column;">
+            <h3 class="product-card__title" style="font-size:1rem; margin-bottom:0.5rem;"><a href="detalle.html">Laptop ProBook 15"</a></h3>
+            <div class="product-card__price-row" style="margin-bottom:10px;">
+              <span class="price-current" style="font-size:1.4rem;">599,00€</span>
+              <span class="price-old" style="font-size:0.9rem;">1499,00€</span>
+            </div>
+            <button class="btn btn-cart" style="width:100%; padding:8px; font-size:0.85rem;" onclick="Cart.add(4)">Añadir a cesta</button>
+          </div>
+        </article>
+
+        <!-- Producto 4: Cámara Reflex -->
+        <article class="product-card">
+          <div class="product-card__media">
+            <span class="product-card__badge badge--discount">-20%</span>
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500&q=80" alt="Cámara" class="product-card__img">
+          </div>
+          <div class="product-card__content" style="padding: 1rem; display: flex; flex-direction: column;">
+            <h3 class="product-card__title" style="font-size:1rem; margin-bottom:0.5rem;"><a href="detalle.html">Cámara Reflex</a></h3>
+            <div class="product-card__price-row" style="margin-bottom:10px;">
+              <span class="price-current" style="font-size:1.4rem;">450,00€</span>
+              <span class="price-old" style="font-size:0.9rem;">560,00€</span>
+            </div>
+            <button class="btn btn-cart" style="width:100%; padding:8px; font-size:0.85rem;" onclick="Cart.add(3)">Añadir a cesta</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 
+      4. BANNERS PROMOCIONALES / CAMPAÑAS DE MARKETING:
+      ¿POR QUÉ SE HIZO ASÍ?
+      Un grid responsivo de dos columnas con banners visuales de campañas específicas 
+      (ej: Rebajas de Verano y Tecnología) que actúan como "imán visual" para segmentar 
+      la navegación y dirigir el tráfico a categorías clave.
+    -->
+    <section class="container mt-4">
+      <div class="promo-banners">
+        <a href="productos.html" class="promo-banner animate">
+          <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80" alt="Rebajas Verano">
+          <div class="promo-content">
+            <h3>Rebajas Especiales</h3>
+            <p>Hasta un 50% en ropa</p>
+            <span class="btn btn-primary" style="margin-top:10px;">Ver ofertas</span>
+          </div>
+        </a>
+        <a href="productos.html" class="promo-banner animate">
+          <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800&q=80" alt="Especial Tech">
+          <div class="promo-content">
+            <h3>Especial Tecnología</h3>
+            <p>Renueva tu Setup</p>
+            <span class="btn btn-primary" style="margin-top:10px;">Comprar ahora</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 
+      5. SECCIÓN DE RECOMENDACIONES DINÁMICAS (Inspirado en tus búsquedas):
+      ¿CÓMO FUNCIONA?
+      - El contenedor `#products-container` empieza completamente vacío.
+      - Al cargar la página, el script principal (`API.getFeaturedProducts()`) en `main.js` 
+        realiza una carga dinámica simulada, genera los elementos HTML de las tarjetas 
+        e inyecta el catálogo completo de productos con sus especificaciones de forma dinámica.
+    -->
+    <section class="container mt-4" style="margin-bottom: 4rem;">
+      <h2 class="section-title" style="margin-bottom:1.2rem;">Inspirado en tus búsquedas</h2>
+      <div class="products-grid" id="products-container">
+        <!-- Inyección dinámica de productos por JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA (Footer): Estructurado en rejilla semántica para SEO y enlaces legales -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Columna de Branding y Pasarela de pagos aceptados (Trust Signals de pie de página) -->
+        <div>
+          <h3 style="font-size:1.5rem; color:#fff; margin-bottom:1rem;">Merca<span style="color:var(--brand)">to</span></h3>
+          <p style="color:#aaa; font-size:0.9rem;">Envíos globales y pagos 100% seguros.</p>
+          <div class="trust-icons" style="display:flex; gap:10px; margin-top:15px;">
+            <svg width="36" height="24" viewBox="0 0 32 20" fill="#fff" opacity="0.8"><rect width="32" height="20" rx="4" fill="#1a1f26"/><text x="4" y="14" font-size="10" font-weight="bold" fill="#fff">VISA</text></svg>
+            <svg width="36" height="24" viewBox="0 0 32 20" fill="#fff" opacity="0.8"><rect width="32" height="20" rx="4" fill="#1a1f26"/><circle cx="12" cy="10" r="6" fill="#eb001b" opacity="0.8"/><circle cx="20" cy="10" r="6" fill="#f79e1b" opacity="0.8"/></svg>
+            <svg width="45" height="24" viewBox="0 0 40 20" fill="#fff" opacity="0.8"><rect width="40" height="20" rx="4" fill="#1a1f26"/><text x="4" y="14" font-size="10" font-weight="bold" fill="#fff" font-style="italic">PayPal</text></svg>
+          </div>
+        </div>
+        
+        <!-- Enlaces corporativos -->
+        <div class="footer-col">
+          <h4>Conócenos</h4>
+          <a href="nosotros.html">Sobre nosotros</a>
+          <a href="#">Trabaja en Mercato</a>
+        </div>
+        
+        <!-- Enlaces comerciales -->
+        <div class="footer-col">
+          <h4>Métodos de pago</h4>
+          <a href="#">Tarjetas de crédito</a>
+          <a href="#">Financiación</a>
+        </div>
+        
+        <!-- Enlaces de Soporte y Devoluciones privadas -->
+        <div class="footer-col">
+          <h4>¿Necesitas ayuda?</h4>
+          <a href="contacto.html">Atención al cliente</a>
+          <a href="pedidos.html">Devoluciones</a>
+        </div>
+      </div>
+      
+      <!-- Derechos legales y Copyright -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Mercato S.L. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Carga del JavaScript principal unificado al final para no bloquear la carga del DOM y optimizar velocidad (SEO Speed) -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
